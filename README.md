@@ -1,5 +1,7 @@
 # frontend-base
 
+> `node.js`版本推荐使用`14.17.0`,用以兼容`scss`。
+
 ## Project setup
 ```
 yarn install
