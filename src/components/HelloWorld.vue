@@ -12,6 +12,9 @@
     <van-button type="default">默认按钮</van-button>
     <van-button type="warning">警告按钮</van-button>
     <van-button type="danger">危险按钮</van-button>
+    <div class="content-wrap">
+      test rem layout
+    </div>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
@@ -51,6 +54,13 @@ export default {
 h3 {
   margin: 40px 0 0;
   color: $red;
+}
+.content-wrap {
+  width: 37.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0 auto;
+  background: blanchedalmond;
 }
 ul {
   list-style-type: none;
