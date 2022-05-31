@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --open",
+    "dev": "cross-env VUE_APP_CUR_ENV=dev vue-cli-service serve --open",
+    "uat": "cross-env VUE_APP_CUR_ENV=uat VUE_APP_ADMIN_BASE_URL=http://127.0.0.1:8087/ vue-cli-service serve --open",
+    "prod": "cross-env VUE_APP_CUR_ENV=prod VUE_APP_ADMIN_BASE_URL=http://127.0.0.1:8087/ vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",
