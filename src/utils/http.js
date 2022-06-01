@@ -1,20 +1,45 @@
 import request from "../plugins/axios";
 
 export default {
-  get() {
-    return request();
+  post(url, data = {}) {
+    const config = {
+      method: "post",
+      url,
+      data,
+    };
+    return request(config);
   },
-  post(param) {
-    console.log(param);
-    return request();
+  put(url, data = {}) {
+    const config = {
+      method: "put",
+      url,
+      data,
+    };
+    return request(config);
   },
-  put() {
-    return request();
+  get(url, params = {}) {
+    const config = {
+      method: "get",
+      url,
+      params,
+    };
+    return request(config);
   },
-  delete() {
-    return request();
+  delete(url, params = {}) {
+    const config = {
+      method: "delete",
+      url,
+      params,
+    };
+    return request(config);
   },
-  upload() {
-    return request();
-  },
+  // 保留上传文件方法
+  // upload(url, data) {
+  //   const config = {
+  //     method: "post",
+  //     url,
+  //     data,
+  //   };
+  //   return request(config);
+  // },
 };

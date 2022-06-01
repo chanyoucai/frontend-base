@@ -108,13 +108,15 @@
 </template>
 
 <script>
+import userApi from "@/api/user";
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
-  created() {
-    console.log(this.$http.post("post"));
+  async created() {
+    let res = userApi.userInfo();
+    console.log("res:", res);
   },
 };
 </script>

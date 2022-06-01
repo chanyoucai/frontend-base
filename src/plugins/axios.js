@@ -1,17 +1,21 @@
 import axios from "axios";
+// vant-ui 提示
 import { Toast } from "vant";
+// 可添加 qs包 序列化参数
 
-const request = axios.create({
+const service = axios.create({
   // 通过环境变量获取 baseUrl
   baseURL: "",
+  // 超时设置
   timeout: 6000,
+  // 允许携带身份信息
   withCredentials: true,
 });
 
 // 请求拦截器
-request.interceptors.request.use(
+service.interceptors.request.use(
   (config) => {
-    // 在发送请求之前做些什么
+    // 在 localStorage 或 Vuex 中获取token
     const token = "";
     token && (config.headers.Authorization = token);
     return config;
@@ -23,9 +27,9 @@ request.interceptors.request.use(
 );
 
 // 添加响应拦截器
-request.interceptors.response.use(
+service.interceptors.response.use(
   (response) => {
-    // 对响应数据做点什么
+    // 处理响应体
     if (response.status === 200) {
       return Promise.resolve(response);
     } else {
@@ -33,28 +37,25 @@ request.interceptors.response.use(
     }
   },
   (error) => {
-    // 对响应错误做点什么
+    // 处理异常
+    console.log("error:", error);
+    console.log("status:", error.response.status);
     switch (error.response.status) {
       case 401:
+        console.log("401");
         // 未登录，打到登录页
         break;
       case 403:
-        Toast({
-          message: "登录过期，请重新登录",
-          duration: 1000,
-          forbidClick: true,
-        });
+        console.log("403");
+        Toast("登录过期，请重新登录");
         // 清除token，跳转到登录页
         break;
       case 404:
-        Toast({
-          message: "资源不存在",
-          duration: 1000,
-          forbidClick: true,
-        });
+        console.log("404");
+        Toast("资源不存在");
         break;
       default:
-        Toast({
+        Toast.fail({
           message: error.response.data.message,
           duration: 1500,
           forbidClick: true,
@@ -64,4 +65,4 @@ request.interceptors.response.use(
   }
 );
 
-export default request;
+export default service;
