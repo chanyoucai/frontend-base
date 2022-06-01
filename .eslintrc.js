@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "prettier/prettier": ["error", { endOfLine: "auto" }], // 不区分不同系统之间的换行
   },
 };

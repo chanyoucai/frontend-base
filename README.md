@@ -1,24 +1,18 @@
-# base
+# frontend-base-h5
 
-## Project setup
+> 基于 `@vue/cli 4.5.9` 搭建的 `Vue2.x + vant-ui` 的移动端 h5 基础架子。
+
+### 项目启动
 ```
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 项目打包
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+### 项目目录结构
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
