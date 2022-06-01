@@ -113,6 +113,9 @@ export default {
   props: {
     msg: String,
   },
+  created() {
+    console.log(this.$http.post("post"));
+  },
 };
 </script>
 

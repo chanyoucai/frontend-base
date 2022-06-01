@@ -4,13 +4,17 @@ export default {
   get() {
     return request();
   },
-  post() {
+  post(param) {
+    console.log(param);
     return request();
   },
   put() {
     return request();
   },
   delete() {
+    return request();
+  },
+  upload() {
     return request();
   },
 };
