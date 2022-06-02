@@ -4,6 +4,11 @@ import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
 
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
+
 const routes = [
   {
     path: "/",
@@ -23,6 +28,17 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  // 路由拦截
+  next();
+});
+
+// 切换页面跳转到顶部
+router.afterEach((to) => {
+  window.scrollTo(0, 0);
+  document.title = to.meta.title;
 });
 
 export default router;
