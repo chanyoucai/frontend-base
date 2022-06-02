@@ -108,15 +108,41 @@
 </template>
 
 <script>
-import userApi from "@/api/user";
+// import userApi from "@/api/user";
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
   async created() {
-    let res = userApi.userInfo();
-    console.log("res:", res);
+    // let res = await userApi.getInfo({ id: 2 });
+    // console.log("res:", res);
+    // let res1 = await userApi.postInfo({
+    //   accountName: "string",
+    //   clientId: "string",
+    //   companyName: "string",
+    //   email: "string",
+    //   enterpriseId: 0,
+    //   fromClientId: "string",
+    //   id: 0,
+    //   image: "string",
+    //   lastEnterpriseId: 0,
+    //   lastSubEnterpriseId: 0,
+    //   name: "string",
+    //   outId: "string",
+    //   pageNo: 0,
+    //   pageSize: 0,
+    //   password: "string",
+    //   phone: "string",
+    //   roleId: 0,
+    //   status: 0,
+    //   subEnterpriseId: 0,
+    //   tenantId: 0,
+    //   unionId: "string",
+    //   userType: 0,
+    //   vkPasswordAt: "2022-06-02T08:06:26.856Z",
+    // });
+    // console.log("res1:", res1);
   },
 };
 </script>

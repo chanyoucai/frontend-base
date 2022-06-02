@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
 
@@ -13,7 +12,8 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
   },
   {
     path: "/about",
@@ -22,7 +22,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
 ];
 
@@ -38,7 +38,8 @@ router.beforeEach((to, from, next) => {
 // 切换页面跳转到顶部
 router.afterEach((to) => {
   window.scrollTo(0, 0);
-  document.title = to.meta.title;
+  console.log(to);
+  // document.title = to.meta.title;
 });
 
 export default router;

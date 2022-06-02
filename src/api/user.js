@@ -1,6 +1,6 @@
 import http from "../utils/http";
 
-let commonApi = "";
+let commonApi = "/v1/api";
 
 export default {
   // 登录
@@ -16,5 +16,11 @@ export default {
   },
   deleteInfo(params) {
     return http.delete(`${commonApi}`, params);
+  },
+  getInfo(params) {
+    return http.get(`${commonApi}/user/enterpriseAccount/${params.id}`);
+  },
+  postInfo(data) {
+    return http.post(`${commonApi}/user/create`, data);
   },
 };

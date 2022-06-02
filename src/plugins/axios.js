@@ -5,7 +5,7 @@ import { Toast } from "vant";
 
 const service = axios.create({
   // 通过环境变量获取 baseUrl
-  baseURL: "",
+  // baseURL: "",
   // 超时设置
   timeout: 6000,
   // 允许携带身份信息
@@ -16,7 +16,7 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     // 在 localStorage 或 Vuex 中获取token
-    const token = "";
+    const token = "c3RlZWxfdHJhZGU6QTg2MjQ0OTY4NzIyMjYzMjdO";
     token && (config.headers.Authorization = token);
     return config;
   },
@@ -29,9 +29,11 @@ service.interceptors.request.use(
 // 添加响应拦截器
 service.interceptors.response.use(
   (response) => {
+    console.log("response:", response);
     // 处理响应体
+    // response.data 为服务器返回的响应体
     if (response.status === 200) {
-      return Promise.resolve(response);
+      return Promise.resolve(response.data);
     } else {
       return Promise.reject(response);
     }
@@ -39,7 +41,6 @@ service.interceptors.response.use(
   (error) => {
     // 处理异常
     console.log("error:", error);
-    console.log("status:", error.response.status);
     switch (error.response.status) {
       case 401:
         console.log("401");
